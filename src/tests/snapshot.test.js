@@ -16,7 +16,9 @@ const FlightService = {
   describe('FlightService', () => {
     it('Should return a list of flights', () => {
       //recupérer la liste FlightService.list()
+      const flights = FlightService.list();
       //Et créer un test snapshot
+      expect(flights).toMatchSnapshot();
     });
   });
   
@@ -30,6 +32,7 @@ const FlightService = {
     it('will fail every time', () => {
       //L'id est généré de manière aléatoire, il changera à chaque nouveau test idem pour la date
       //Créer un test snapshot qui failera à chaque fois
+      expect(user).toMatchSnapshot();
     });
   });
   
@@ -42,6 +45,10 @@ const FlightService = {
   describe('User', () => {
     it('will check the matchers and pass', () => {
       //Adapter le test snapshot à l'aide des options disponibles afin de parvenir à valider le test de l'user à chaque fois malgré le changement de l'id et de la date
+      expect(user_2).toMatchSnapshot({
+        createdAt: expect.any(Date),
+        id: expect.any(Number),
+      });
     });
   });
   
@@ -54,6 +61,11 @@ const FlightService = {
   describe('User', () => {
     it('will check the matchers and pass', () => {
       //Adapter le test snapshot à l'aide des options disponibles afin de parvenir à valider le test de l'user à chaque fois malgré le changement de l'id, de la date et du nom
+      expect(user_3).toMatchSnapshot({
+        createdAt: expect.any(Date),
+        id: expect.any(Number),
+        name: expect.any(String),
+      });
     });
   });
   
