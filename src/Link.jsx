@@ -9,10 +9,12 @@ const Link = (props) => {
   const [status, setStatus] = useState(STATUS.NORMAL);
 
   const onMouseEnter = () => {
+    // console.log('onMouseEnter');
     setStatus(STATUS.HOVERED);
   }
 
   const onMouseLeave = () => {
+    // console.log('onMouseLeave');
     setStatus(STATUS.NORMAL);
   }
 
